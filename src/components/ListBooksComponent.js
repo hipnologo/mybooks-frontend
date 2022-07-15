@@ -63,7 +63,7 @@ const ListBooksComponents = () => {
                             <td>
                                  <Link className='btn btn-info' to={'/edit-book/'+book.id}>Update</Link>
                                  <button className='btn btn-danger' onClick={() => deleteBook(book.id)}
-                                 style = {{marginLeft: "10px"}}>Delete </button>
+                                         style = {{marginLeft: "10px"}}>Delete </button>
                             </td>
                         </tr>
                     )

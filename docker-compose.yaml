@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  mybooksdb:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=mybooksdb
+      - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  api:
+    container_name: mybooks-frontend-container
+    build:
+      context: ./
+      target: production
+    image: mybooks-frontend
+    depends_on:
+      - mybooksdb
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: production
+      DB_HOST: mysqldb
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: secret
+      DB_NAME: mybooksdb
+    links:
+      - db
+    volumes:
+      - ./:/src
+volumes:
+  db:
+    driver: local

@@ -174,7 +174,8 @@ const AddBookComponent = () => {
                         </div>
 
                         <button className='btn btn-success' onClick={(e) => saveOrUpdateBook(e)}>Save</button>
-                        <Link to="/mybooks" className='btn btn-danger'>Cancel</Link>
+                        <Link to="/mybooks" className='btn btn-danger'
+                              style = {{marginLeft: "10px"}}>Cancel</Link>
                     </form>
                 </div>
             </div>

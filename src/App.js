@@ -4,6 +4,9 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListBooksComponent from './components/ListBooksComponent';
 import AddBookComponent from './components/AddBookComponent';
+import ErrorPageComponent from "./components/ErrorPageComponent";
+import ListLanguagesComponent from "./components/ListLanguagesComponent";
+import ManageLanguagesComponent from "./components/ManageLanguagesComponent";
 
 function App() {
   return (
@@ -11,12 +14,16 @@ function App() {
       <BrowserRouter>
       <HeaderComponent />
       <Routes>
-        <Route index element={<ListBooksComponent />} />
-        <Route path="/" element={<ListBooksComponent />}></Route> 
-        <Route path="/mybooks" element={<ListBooksComponent />}></Route>
-        <Route path="/books" element={<ListBooksComponent />}></Route>
-        <Route path="/add-book" element={<AddBookComponent />}></Route>
-        <Route path="/edit-book/:id" element={<AddBookComponent />}></Route>
+          <Route index element={<ListBooksComponent />} />
+          <Route path="/" element={<ListBooksComponent />}></Route>
+          <Route path="/mybooks" element={<ListBooksComponent />}></Route>
+          <Route path="/books" element={<ListBooksComponent />}></Route>
+          <Route path="/add-book" element={<AddBookComponent />}></Route>
+          <Route path="/edit-book/:id" element={<AddBookComponent />}></Route>
+          <Route path="/languages" element={<ListLanguagesComponent />}></Route>
+          <Route path="/manage-languages" element={<ManageLanguagesComponent />}></Route>
+          <Route path="/manage-languages/:id" element={<ManageLanguagesComponent />}></Route>
+          <Route path = "*" element={<ErrorPageComponent/>}></Route>
       </Routes>
       <FooterComponent />
       </BrowserRouter>

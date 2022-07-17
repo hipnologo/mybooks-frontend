@@ -12,7 +12,6 @@ const HeaderComponent = () => {
                 </div>
             </nav>
         </header>
-
     </div>
   )
 }

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mybooks-frontend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mybooks-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mybooks-frontend
+    spec:
+      containers:
+        - name: mybooks-frontend
+          image: hipnologo/mybooks-frontend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mybooks-frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: mybooks-frontend
+  ports:
+    - name: mybooks-frontend
+      port: 3000
+      targetPort: 3000

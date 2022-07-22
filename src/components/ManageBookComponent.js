@@ -3,7 +3,7 @@ import { useNavigate, Navigate, Link, useParams } from 'react-router-dom';
 import BookService from '../services/BookService';
 
 
-const AddBookComponent = () => {
+const ManageBookComponent = () => {
     const [isbn, setISBN] = useState('');
     const [bookTitle, setBookTitle] = useState('');
     const [bookSubtitle, setBookSubtitle] = useState('');
@@ -184,4 +184,4 @@ const AddBookComponent = () => {
   )
 }
 
-export default AddBookComponent
+export default ManageBookComponent

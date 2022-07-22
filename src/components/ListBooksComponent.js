@@ -30,7 +30,7 @@ const ListBooksComponents = () => {
   return (
     <div className="container">
         <h2 className='text-center'>MyBooks</h2> 
-        <Link to = "/add-book" className='btn btn-primary mb-2'> Add Book</Link>
+        <Link to = "/manage-book" className='btn btn-primary mb-2'> Add Book</Link>
         <table className='table table-bordered table-striped'>
             <thead>
                 <th> Book Id</th>
@@ -61,7 +61,7 @@ const ListBooksComponents = () => {
                             <td> {book.publicationYear}</td> 
                             <td> {book.bookCategory}</td> 
                             <td>
-                                 <Link className='btn btn-info' to={'/edit-book/'+book.id}>Update</Link>
+                                 <Link className='btn btn-info' to={'/manage-book/'+book.id}>Update</Link>
                                  <button className='btn btn-danger' onClick={() => deleteBook(book.id)}
                                          style = {{marginLeft: "10px"}}>Delete </button>
                             </td>

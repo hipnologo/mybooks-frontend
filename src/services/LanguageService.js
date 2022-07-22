@@ -5,7 +5,7 @@ const LANGUAGES_BASE_REST_API_URL = 'http://localhost:8080/api/v1/languages';
 class LanguageService{
 
     getAllLanguages(){
-        return axios.get(LANGUAGES_BASE_REST_API_URL)
+        return axios.get('http://localhost:8080/api/v1/languages')
     }
 
     createLanguage(language){

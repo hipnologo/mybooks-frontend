@@ -14,6 +14,7 @@ import LoginComponent from "./components/LoginComponent";
 import ForgotPasswordComponent from "./components/ForgotPasswordComponent";
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>

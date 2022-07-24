@@ -43,22 +43,23 @@ class BookService{
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + ENCODEDTOKEN
             }
-        }).then(res => {
-                console.log(res);
-                //console.log(JSON.stringify(res.data));
-                //console.log(res.headers['Authorization']);
-            })
-            .catch(err =>{
+        })/*.then(res => {
+            console.log(typeof res);
+            console.log(res);
+            //console.log(JSON.stringify(res.data));
+            //console.log(res.headers['Authorization']);
+        })
+            .catch(err => {
                 console.log(err);
-            })
+            })*/
     }
 
-    createBook(book){
+    createBook(book) {
         return axios.post(BOOKS_BASE_REST_API_URL, book)
             .then(res => {
-            console.log(res);
-        })
-            .catch(err =>{
+                console.log(res);
+            })
+            .catch(err => {
                 console.log(err);
             })
     }

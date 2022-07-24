@@ -13,65 +13,62 @@ const ListLanguagesComponents = () => {
     }, [])
 
     const getAllLanguages = () => {
-      setLoading(true);
-      LanguageService.getAllLanguages()
-      .then((response) => {
-        setLanguages({languages: response.data});
-        console.log(response.data);
-      }).catch(error =>{
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-    }
-    
-    const deleteLanguage = (languageId) => {
-      LanguageService.deleteLanguage(languageId)
-      .then((response) => {
-        getAllLanguages();
-      }).catch(error => {
-        console.log(error)
-      })
+        setLoading(true);
+        LanguageService.getAllLanguages()
+            .then((response) => {
+                setLanguages(response.data);
+            }).catch(error => {
+            console.log(error);
+        })
+            .finally(() => {
+                setLoading(false);
+            });
     }
 
-    if (loading) {
-      return <p>Data is loading...</p>;
+    const deleteLanguage = (languageId) => {
+        LanguageService.deleteLanguage(languageId)
+            .then((response) => {
+                getAllLanguages();
+            }).catch(error => {
+            console.log(error)
+        })
     }
 
     if (error || !Array.isArray(languages)) {
-      return <p>There was an error loading your data!</p>;
-    }
-  
+        return <p>There was an error loading your data!</p>;}
 
   return (
     <div className="container">
         <h2 className='text-center'>Book Languages</h2>
         <Link to = "/manage-languages" className='btn btn-primary mb-2'> Add Language</Link>
-        <table className='table table-bordered table-striped'>
+
+        {loading ? <p>Loading...</p> :
+
+            <table className='table table-bordered table-striped'>
             <thead>
-                <th> Language Id</th>
-                <th> Language</th>
-                <th> Actions</th>
+            <th> ID</th>
+            <th> Language</th>
+            <th> Actions</th>
             </thead>
             <tbody>
-                {
-                    languages.map(
-                        (language) =>
-                        <tr key = {language?.id}>
-                            <td> {language?.id}</td>
-                            <td> {language?.language}</td>
-                            <td>
-                                 <Link className='btn btn-info' to={'/manage-languages/'+language.id}>Update</Link>
-                                 <button className='btn btn-danger' onClick={() => deleteLanguage(language.id)}
-                                 style = {{marginLeft: "10px"}}>Delete </button>
-                            </td>
-                        </tr>
-                    )
-                }
+        {
+            languages.map(
+            language =>
+            <tr key = {language.id}>
+            <td> {language.id}</td>
+            <td> {language.language}</td>
+            <td>
+            <Link className='btn btn-info' to={'/manage-languages/'+language.id}>Update</Link>
+            <button className='btn btn-danger' onClick={() => deleteLanguage(language.id)}
+            style = {{marginLeft: "10px"}}>Delete </button>
+            </td>
+            </tr>
+            )
+        }
 
             </tbody>
-        </table>
+            </table>
+        }
     </div>
   )
 }

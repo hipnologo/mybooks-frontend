@@ -10,16 +10,16 @@ const ENCODEDTOKEN = encode(TOKEN);
 
 class LanguageService{
 
-    getAllLanguages(){
-        axios.get(LANGUAGES_BASE_REST_API_URL, {
+    async getAllLanguages(){
+        return await axios.get(LANGUAGES_BASE_REST_API_URL, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + ENCODEDTOKEN
             }
         }).then(res => {
                 console.log(res);
-                console.log(JSON.stringify(res.data));
-                console.log(res.headers['Authorization']);
+                //console.log(JSON.stringify(res.data));
+                //console.log(res.headers['Authorization']);
             })
             .catch(err =>{
                 console.log(err);

@@ -11,7 +11,8 @@ const ListBooksComponents = () => {
     }, [])
 
     const getAllBooks = () => {
-      BookService.getAllBooks().then((response) => {
+      BookService.getAllBooks()
+      .then((response) => {
         setBooks(response.data)
         console.log(response.data);
       }).catch(error =>{
@@ -20,7 +21,8 @@ const ListBooksComponents = () => {
     }
     
     const deleteBook = (bookId) => {
-      BookService.deleteBook(bookId).then((response) => {
+      BookService.deleteBook(bookId)
+      .then((response) => {
         getAllBooks();
       }).catch(error => {
         console.log(error)

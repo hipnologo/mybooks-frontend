@@ -37,16 +37,16 @@ class BookService{
             });
     }
 */
-    getAllBooks(){
-        axios.get(BOOKS_BASE_REST_API_URL, {
+    async getAllBooks() {
+        return await axios.get(BOOKS_BASE_REST_API_URL, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + ENCODEDTOKEN
             }
         }).then(res => {
                 console.log(res);
-                console.log(JSON.stringify(res.data));
-                console.log(res.headers['Authorization']);
+                //console.log(JSON.stringify(res.data));
+                //console.log(res.headers['Authorization']);
             })
             .catch(err =>{
                 console.log(err);

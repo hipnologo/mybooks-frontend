@@ -1,32 +1,29 @@
 import axios from 'axios'
 import {decode, encode} from 'base-64'
-//import * as https from "https";
 
 const BOOKS_BASE_REST_API_URL = 'http://localhost:8080/api/v1/mybooks'
-const BOOKS_FRONTEND_URI = 'http://localhost:3000'
 const USER = 'admin'
 const PASSWORD = 'senha123'
 const PASSBASE64 = '$2a$10$8/FbKTtcU5Dg0n0gtd2Sy.q1AsNJFm6x/cEBpGmmODh2FSbKttvw2'
+const TOKEN = `${USER}:${PASSWORD}`;
+const ENCODEDTOKEN = encode(TOKEN);
 
 class BookService{
-
+/*
     getAllBooks() {
 
         var username = USER;
         var password = PASSWORD
 
         const token = `${username}:${password}`;
-        console.log(token);
-        const encodedToken = encode(token); //Buffer.from(token).toString('base64');
-        const session_url = BOOKS_BASE_REST_API_URL;
+        const encodedToken = encode(token);
+        console.log("encodedToken: " + encodedToken + " Deveria ser: dXNlcjpzZW5oYTEyMw==");
 
         var config = {
-            method: 'get',
-            url: session_url,
+            method: 'GET',
+            url: BOOKS_BASE_REST_API_URL,
             headers: {
-                'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
                 'Authorization': 'Basic ' + encodedToken
             }
         };
@@ -39,12 +36,12 @@ class BookService{
                 console.log(error);
             });
     }
-/*
+*/
     getAllBooks(){
         axios.get(BOOKS_BASE_REST_API_URL, {
-            auth: {
-                username: USER,
-                password: PASSWORD
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + ENCODEDTOKEN
             }
         }).then(res => {
                 console.log(res);
@@ -55,7 +52,7 @@ class BookService{
                 console.log(err);
             })
     }
-*/
+
     createBook(book){
         return axios.post(BOOKS_BASE_REST_API_URL, book)
             .then(res => {

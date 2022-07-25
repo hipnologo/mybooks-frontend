@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { AuthProvider } from './context/AuthProvider';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {decode, encode} from 'base-64'
@@ -17,7 +18,9 @@ if (!global.atob) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <AuthProvider>
+          <App />
+      </AuthProvider>
   </React.StrictMode>
 );
 

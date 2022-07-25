@@ -157,8 +157,8 @@ function HamburgerMenu() {
                         </ItemLink>
                     </li>
                     <li>
-                        <ItemLink onClick={handleClick} to="/signup">
-                            Sign-up
+                        <ItemLink onClick={handleClick} to="/register">
+                            Register
                         </ItemLink>
                     </li>
                 </List>

@@ -14,7 +14,7 @@ const ManageLanguageComponent = () => {
     const saveOrUpdateLanguage = (e) => {
         e.preventDefault();
 
-        const language = {id, language}
+        const languageData = {id, language}
 
         if(id){
             LanguageService.updateLanguage(id, language).then((response) => {
@@ -25,7 +25,7 @@ const ManageLanguageComponent = () => {
                 console.log(error);
             })
         }else{
-            LanguageService.createLanguage(language).then((response) => {
+            LanguageService.createLanguage(languageData).then((response) => {
                 console.log(response.data)
                 navigate("/languages");
                 //history.push('/languages');

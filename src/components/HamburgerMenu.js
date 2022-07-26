@@ -147,8 +147,13 @@ function HamburgerMenu() {
                         </ItemLink>
                     </li>
                     <li>
-                        <ItemLink onClick={handleClick} to="/Languages">
+                        <ItemLink onClick={handleClick} to="/languages">
                             Languages
+                        </ItemLink>
+                    </li>
+                    <li>
+                        <ItemLink onClick={handleClick} to="/authors">
+                            Authors
                         </ItemLink>
                     </li>
                     <li>

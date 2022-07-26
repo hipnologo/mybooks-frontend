@@ -1,4 +1,5 @@
-import './App.css';
+//import './App.css';
+import './css/landing.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
@@ -33,6 +34,9 @@ function App() {
           <Route path="/languages" element={<ListLanguagesComponent />}></Route>
           <Route path="/manage-languages" element={<ManageLanguagesComponent />}></Route>
           <Route path="/manage-languages/:id" element={<ManageLanguagesComponent />}></Route>
+          <Route path="/authors" element={<ListLanguagesComponent />}></Route>
+          <Route path="/manage-authors" element={<ManageLanguagesComponent />}></Route>
+          <Route path="/manage-authors/:id" element={<ManageLanguagesComponent />}></Route>
           <Route path = "*" element={<ErrorPageComponent/>}></Route>
       </Routes>
       <FooterComponent />

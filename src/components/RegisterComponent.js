@@ -2,10 +2,11 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
+import {decode, encode} from 'base-64'
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/users';
+const REGISTER_URL = '/api/v1/users';
 
 const Register = () => {
     const userRef = useRef();
@@ -56,7 +57,8 @@ const Register = () => {
             const response = await axios.post(REGISTER_URL,
                 JSON.stringify({ user, pwd }),
                 {
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'application/json',
+                               'Authorization': 'Basic ' + encode(user + pwd)},
                     withCredentials: true
                 }
             );

@@ -40,9 +40,10 @@ class AuthorService{
         })
     }
 
-    updateAuthor(authorId, author) {
+    updateAuthor(authorId, firstName, lastName) {
         return axios.put(BASE_REST_API_URL + '/' + authorId, {
-            author,
+            firstName,
+            lastName,
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

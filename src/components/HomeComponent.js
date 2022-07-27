@@ -1,7 +1,6 @@
-import '../css/landing.css';
 import React from "react";
 
-/* const Home = () => {
+ const Home = () => {
     return (
         <div className="container">
             <section className="section-title-large">
@@ -20,8 +19,8 @@ import React from "react";
     );
 };
 
-export default Home; */
-
+export default Home;
+/*
 const { Component } = React
 
 class Home extends Component {
@@ -129,3 +128,4 @@ class Home extends Component {
 
 //ReactDOM.render(<EntryPage/>, document.getElementById("app"))
 export default Home;
+*/

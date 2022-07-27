@@ -13,6 +13,8 @@ import HomeComponent from "./components/HomeComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
 import ForgotPasswordComponent from "./components/ForgotPasswordComponent";
+import ListAuthorsComponent from "./components/ListAuthorsComponent";
+import ManageAuthorsComponent from "./components/ManageAuthorsComponent";
 
 function App() {
 
@@ -34,9 +36,9 @@ function App() {
           <Route path="/languages" element={<ListLanguagesComponent />}></Route>
           <Route path="/manage-languages" element={<ManageLanguagesComponent />}></Route>
           <Route path="/manage-languages/:id" element={<ManageLanguagesComponent />}></Route>
-          <Route path="/authors" element={<ListLanguagesComponent />}></Route>
-          <Route path="/manage-authors" element={<ManageLanguagesComponent />}></Route>
-          <Route path="/manage-authors/:id" element={<ManageLanguagesComponent />}></Route>
+          <Route path="/authors" element={<ListAuthorsComponent />}></Route>
+          <Route path="/manage-authors" element={<ManageAuthorsComponent />}></Route>
+          <Route path="/manage-authors/:id" element={<ManageAuthorsComponent />}></Route>
           <Route path = "*" element={<ErrorPageComponent/>}></Route>
       </Routes>
       <FooterComponent />

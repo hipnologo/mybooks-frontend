@@ -47,7 +47,8 @@ const ListAuthorsComponents = () => {
             <table className='table table-bordered table-striped'>
             <thead>
             <th> ID</th>
-            <th> Author</th>
+            <th> First Name</th>
+            <th> Last Name</th>
             <th> Actions</th>
             </thead>
             <tbody>
@@ -56,7 +57,8 @@ const ListAuthorsComponents = () => {
             author =>
             <tr key = {author.id}>
             <td> {author.id}</td>
-            <td> {author.author}</td>
+            <td> {author.firstName}</td>
+            <td> {author.lastName}</td>
             <td>
             <Link className='btn btn-info' to={'/manage-authors/'+author.id}>Update</Link>
             <button className='btn btn-danger' onClick={() => deleteAuthor(author.id)}

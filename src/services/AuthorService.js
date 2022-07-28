@@ -1,9 +1,9 @@
 import axios from 'axios'
 import {decode, encode} from 'base-64'
 
-const BASE_REST_API_URL = 'http://localhost:8080/api/v1/authors';
-const USER = 'admin'
-const PASSWORD = 'senha123'
+const BASE_REST_API_URL = process.env.REACT_APP_AUTHORS_BASE_REST_API_URL
+const USER = process.env.REACT_APP_REST_API_USER
+const PASSWORD = process.env.REACT_APP_REST_API_PASSWORD
 const TOKEN = `${USER}:${PASSWORD}`;
 const ENCODEDTOKEN = encode(TOKEN);
 

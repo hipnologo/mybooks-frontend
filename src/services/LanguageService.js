@@ -1,16 +1,16 @@
 import axios from 'axios'
 import {decode, encode} from 'base-64'
 
-const LANGUAGES_BASE_REST_API_URL = 'http://localhost:8080/api/v1/languages';
-const USER = 'admin'
-const PASSWORD = 'senha123'
+const BASE_REST_API_URL = process.env.REACT_APP_LANGUAGES_BASE_REST_API_URL
+const USER = process.env.REACT_APP_REST_API_USER
+const PASSWORD = process.env.REACT_APP_REST_API_PASSWORD
 const TOKEN = `${USER}:${PASSWORD}`;
 const ENCODEDTOKEN = encode(TOKEN);
 
 class LanguageService{
 
     async getAllLanguages() {
-        return await axios.get(LANGUAGES_BASE_REST_API_URL, {
+        return await axios.get(BASE_REST_API_URL, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -20,7 +20,7 @@ class LanguageService{
     }
 
     createLanguage(language) {
-        return axios.post(LANGUAGES_BASE_REST_API_URL, {
+        return axios.post(BASE_REST_API_URL, {
             language,
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ class LanguageService{
     }
 
     getLanguageById(languageId) {
-        return axios.get(LANGUAGES_BASE_REST_API_URL + '/' + languageId, {
+        return axios.get(BASE_REST_API_URL + '/' + languageId, {
                 headers: {
                 'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -41,7 +41,7 @@ class LanguageService{
     }
 
     updateLanguage(languageId, language) {
-        return axios.put(LANGUAGES_BASE_REST_API_URL + '/' + languageId, {
+        return axios.put(BASE_REST_API_URL + '/' + languageId, {
             language,
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ class LanguageService{
     }
 
     deleteLanguage(languageId) {
-        return axios.delete(LANGUAGES_BASE_REST_API_URL + '/' + languageId, {
+        return axios.delete(BASE_REST_API_URL + '/' + languageId, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

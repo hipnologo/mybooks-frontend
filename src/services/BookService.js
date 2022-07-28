@@ -1,10 +1,9 @@
 import axios from 'axios'
 import {decode, encode} from 'base-64'
 
-const BOOKS_BASE_REST_API_URL = 'http://localhost:8080/api/v1/mybooks'
-const USER = 'admin'
-const PASSWORD = 'senha123'
-const PASSBASE64 = '$2a$10$8/FbKTtcU5Dg0n0gtd2Sy.q1AsNJFm6x/cEBpGmmODh2FSbKttvw2'
+const BASE_REST_API_URL = process.env.REACT_APP_BOOKS_BASE_REST_API_URL
+const USER = process.env.REACT_APP_REST_API_USER
+const PASSWORD = process.env.REACT_APP_REST_API_PASSWORD
 const TOKEN = `${USER}:${PASSWORD}`;
 const ENCODEDTOKEN = encode(TOKEN);
 
@@ -21,7 +20,7 @@ class BookService{
 
         var config = {
             method: 'GET',
-            url: BOOKS_BASE_REST_API_URL,
+            url: BASE_REST_API_URL,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + encodedToken
@@ -38,7 +37,7 @@ class BookService{
     }
 */
     async getAllBooks() {
-        return await axios.get(BOOKS_BASE_REST_API_URL, {
+        return await axios.get(BASE_REST_API_URL, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + ENCODEDTOKEN
@@ -55,7 +54,7 @@ class BookService{
     }
 
     createBook(book) {
-        return axios.post(BOOKS_BASE_REST_API_URL, book)
+        return axios.post(BASE_REST_API_URL, book)
             .then(res => {
                 console.log(res);
             })
@@ -65,7 +64,7 @@ class BookService{
     }
 
     getBookById(bookId){
-        return axios.get(BOOKS_BASE_REST_API_URL + '/' + bookId)
+        return axios.get(BASE_REST_API_URL + '/' + bookId)
             .then(res => {
             console.log(res);
         })
@@ -75,7 +74,7 @@ class BookService{
     }
 
     updateBook(bookId, book) {
-        return axios.put(BOOKS_BASE_REST_API_URL + '/' + bookId, book)
+        return axios.put(BASE_REST_API_URL + '/' + bookId, book)
             .then(res => {
                 console.log(res);
             })
@@ -85,7 +84,7 @@ class BookService{
     }
 
     deleteBook(bookId){
-        return axios.delete(BOOKS_BASE_REST_API_URL + '/' + bookId)
+        return axios.delete(BASE_REST_API_URL + '/' + bookId)
             .then(res => {
                 console.log(res);
             })

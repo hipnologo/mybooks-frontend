@@ -48,9 +48,6 @@ const ListBooksComponents = () => {
                 <th> ISBN</th>
                 <th> Book Title</th>
                 <th> Book Subtitle</th>
-                <th> Author</th>
-                <th> Publisher</th>
-                <th> Language</th>
                 <th> Format</th>
                 <th> Year</th>
                 <th> Category</th>
@@ -65,9 +62,6 @@ const ListBooksComponents = () => {
                                 <td> {book.isbn}</td>
                                 <td> {book.bookTitle}</td>
                                 <td> {book.bookSubtitle}</td>
-                                <td> {book.authorName}</td>
-                                <td> {book.publisher}</td>
-                                <td> {book.idLanguage}</td>
                                 <td> {book.bookFormat}</td>
                                 <td> {book.publicationYear}</td>
                                 <td> {book.bookCategory}</td>

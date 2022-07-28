@@ -30,7 +30,6 @@ function App() {
           <Route path="/register" element={<RegisterComponent />}></Route>
           <Route path="/forgot_password" element={<ForgotPasswordComponent />}></Route>
           <Route path="/books" element={<ListBooksComponent />}></Route>
-          <Route path="/mybooks" element={<ListBooksComponent />}></Route>
           <Route path="/manage-books" element={<ManageBookComponent />}></Route>
           <Route path="/manage-books/:id" element={<ManageBookComponent />}></Route>
           <Route path="/languages" element={<ListLanguagesComponent />}></Route>

@@ -1,5 +1,5 @@
-//import './App.css';
-import './css/landing.css'
+import './App.css';
+//import './css/landing.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';

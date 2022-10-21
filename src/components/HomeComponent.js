@@ -8,7 +8,7 @@ import React from "react";
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2">
                             <div className="align-content-center">
-                                <h3 className="text-center mb-60">Welcome to MyBooks App</h3>
+                                <h3 className="text-center mb-60">Welcome to Books App</h3>
 
                             </div>
                         </div>
